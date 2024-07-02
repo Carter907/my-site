@@ -10,16 +10,18 @@ export default async function Projects() {
       
     
   }).map((repo: gitty.Project) => {
-    return <>
-      <Project params={{ key: repo.name, proj: repo }} />
-    </>
+    return <li key={repo.name}>
+      <Project params={{ proj: repo }} />
+    </li>
   });
 
-  return <section className="flex flex-col items-center">
+  return <section className="dark dark:text-white flex flex-col justify-center items-center dark:bg-stone-800 h-screen">
+    <div className="basis-1/6 text-center">
     <p className="text-4xl">Carter's Projects</p>
-    <p>
+    <p className="opacity-50 text-center">
       Hello, Welcome to my Projects.
     </p>
+    </div>
     <ul className="w-fit max-h-[500px] overflow-auto">
       {repos}
     </ul>
