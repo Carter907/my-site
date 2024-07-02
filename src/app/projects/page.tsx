@@ -3,12 +3,10 @@ import getAllRepos from "@carte_907/gitty-api";
 import Project from "./project";
 
 export default async function Projects() {
+  
   const repos = (await getAllRepos('Carter907')).filter((value, _index, _arr) => {
-
     if (value.description)
       return value
-      
-    
   }).map((repo: gitty.Project) => {
     return <li key={repo.name}>
       <Project params={{ proj: repo }} />
